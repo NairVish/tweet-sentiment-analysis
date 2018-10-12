@@ -1,0 +1,405 @@
+Identification_Information:
+  Citation:
+    Citation_Information:
+      Originator: Valerie Paskevich(ed.)
+      Originator: Environmental Systems Research Institute, Inc. (ESRI)(comp.)
+      Publication_Date: 2002
+      Title: CITIES: ESRI northeast cities shapefiles for the Long Island Sound ArcView project area
+      Geospatial_Data_Presentation_Form: vector digital data
+      Publication_Information:
+        Publication_Place: Woods Hole, MA
+        Publisher: U.S. Geological Survey, Coastal and Marine Geology Program
+      Online_Linkage: <http://pubs.usgs.gov/openfile/of02-002/data/basemaps>
+      Online_Linkage: <http://www.esri.com/data/online/index.html>
+      Larger_Work_Citation:
+        Citation_Information:
+          Originator: Larry Poppe
+          Originator: Valerie Paskevich
+          Publication_Date: 2002
+          Title: Geological Framework Data from Long Island Sound, 1981-1990: A Digital Data Release
+          Geospatial_Data_Presentation_Form: atlas
+          Series_Information:
+            Series_Name: U.S. Geological Survey Open-File Report
+            Issue_Identification: 02-002
+          Publication_Information:
+            Publication_Place: Woods Hole, MA
+            Publisher: U.S. Geological Survey, Coastal and Marine Geology Program
+          Online_Linkage: http://pubs.usgs.gov/openfile/of02-002
+  Description:
+    Abstract: This is a point layer of the U.S. cities that fall within the US basemap data layer and border the Long Island Sound study area.
+    Purpose: The purpose of this data layer is to provide a general reference as to locations of the major metropolitan cities and towns that fall within the USA basemap data layer distributed with the Long Island Sound ArcView project file.
+  Time_Period_of_Content:
+    Time_Period_Information:
+      Single_Date/Time:
+        Calendar_Date: 20020630
+    Currentness_Reference: publication date
+  Status:
+    Progress: Complete
+    Maintenance_and_Update_Frequency: None planned
+  Spatial_Domain:
+    Bounding_Coordinates:
+      West_Bounding_Coordinate: -80.499817
+      East_Bounding_Coordinate: -67.987297
+      North_Bounding_Coordinate: 46.686039
+      South_Bounding_Coordinate: 39.269600
+  Keywords:
+    Theme:
+      Theme_Keyword_Thesaurus: General
+      Theme_Keyword: U.S. Geological Survey
+      Theme_Keyword: USGS
+      Theme_Keyword: Coastal and Marine Geology Team
+      Theme_Keyword: Coastal and Marine Geology Program
+      Theme_Keyword: Woods Hole Field Center
+      Theme_Keyword: Connecticut Department of Environmental Protection
+      Theme_Keyword: ArcView
+      Theme_Keyword: arcview
+      Theme_Keyword: shapefile
+      Theme_Keyword: points
+      Theme_Keyword: cities
+      Theme_Keyword: towns
+      Theme_Keyword: northeast states
+      Theme_Keyword: mid-atlantic
+      Theme_Keyword: new england
+      Theme_Keyword: ESRI
+      Theme_Keyword: Environmental Systems Resources Institute, Inc.
+      Theme_Keyword: Geographic Information System
+      Theme_Keyword: GIS
+    Place:
+      Place_Keyword_Thesaurus: General
+      Place_Keyword: Long Island Sound
+      Place_Keyword: Connecticut
+      Place_Keyword: New York
+      Place_Keyword: Maine
+      Place_Keyword: New Hampshire
+      Place_Keyword: Vermont
+      Place_Keyword: Massachusetts
+      Place_Keyword: Rhode Island
+      Place_Keyword: New Jersey
+      Place_Keyword: Pennsylvania
+      Place_Keyword: New England
+      Place_Keyword: Mid-Atlantic
+  Access_Constraints: None
+  Use_Constraints:
+    Although this derived data set and its lineage dataset have been used by the USGS, no warranty, expressed or implied, is made by the USGS or ESRI as to the accuracy of the data and/or related materials. The act of distribution shall not constitute any such warranty, and no responsibility is assumed by the USGS or ESRI in the use of these data or related materials.
+
+    Please read the Environmental Systems Research Institute, Inc. (ESRI) licensing agreement at http://www.esri.com/data/online/datalicense.html
+  Point_of_Contact:
+    Contact_Information:
+      Contact_Organization_Primary:
+        Contact_Organization: U.S. Geological Survey
+        Contact_Person: Valerie Paskevich
+      Contact_Position: Computer Specialist
+      Contact_Address:
+        Address_Type: mailing and physical address
+        Address: 384 Woods Hole Road
+        City: Woods Hole
+        State_or_Province: MA
+        Postal_Code: 02543-1598
+        Country: USA
+      Contact_Voice_Telephone: (508) 548-8700 x2281
+      Contact_Facsimile_Telephone: (508) 457-2310
+      Contact_Electronic_Mail_Address: vpaskevich@usgs.gov
+  Browse_Graphic:
+    Browse_Graphic_File_Name: ../../htmldocs/images/browse/cities.gif
+    Browse_Graphic_File_Description: Image showing the extent of the GIS layer cities that fall within the USA basemap data layer distributed with the Long Island Sound ArcView project file.
+    Browse_Graphic_File_Type: GIF
+  Data_Set_Credit: Environmental Systems Research Institute, Inc. (ESRI) for the source dataset.
+  Native_Data_Set_Environment: Microsoft Windows 2000 Version 5.0 (Build 2195) Service Pack 2; ESRI ArcCatalog 8.1.1.649
+Data_Quality_Information:
+  Attribute_Accuracy:
+    Attribute_Accuracy_Report: The attribute fields were not modified and are complete as they are distributed by ESRI.
+  Logical_Consistency_Report: No additional checks for topological consistency were performed on this data set.
+  Completeness_Report: This is a subset of the complete ESRI cities shapefile.  The original dataset was clipped to include only those cities that would fall within the US basemap data layer being utilized in the Long Island Sound ArcView project file.
+  Lineage:
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Environmental Systems Research Institute, Inc.(comp.)
+          Publication_Date: 1999
+          Title: ESRI cities shapefile
+          Geospatial_Data_Presentation_Form: vector digital data
+          Series_Information:
+            Series_Name: ESRI Data and Maps; Disk 1
+          Publication_Information:
+            Publication_Place: Redlands, CA
+            Publisher: Environmental Systems Research Institute, Inc. (ESRI)
+          Online_Linkage: http://www.esri.com
+          Larger_Work_Citation:
+            Citation_Information:
+              Originator: Environmental Systems Research Institute, Inc.
+              Publication_Date: 1999
+              Title: ESRI Data and Maps CD
+              Geospatial_Data_Presentation_Form: map
+              Publication_Information:
+                Publication_Place: Redlands, CA
+                Publisher: ESRI
+              Other_Citation_Details: The data is organized on five CD-ROMS.  CD#1 contains data for the world, Mexico, Canada, Europe and the United States.  Detailed data for the entire United States is continued on CD #2.  The very detailed data for the regions of the United States is split between the west (CD #3), the east (CD # 4), and the south (CD #5).  Also, there is a ssample image data on CD #5.
+              Online_Linkage: http://www.esri.com/data/online/index.html
+      Type_of_Source_Media: CD-ROM
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 1999
+        Source_Currentness_Reference: publication date
+      Source_Citation_Abbreviation: cities.shp
+      Source_Contribution: The ArcView shapefile, cities.shp, provided by ESRI with their software distribution was used to create the new cities data layer for use with the Long Island Sound study project views.
+    Process_Step:
+      Process_Description: The complete ESRI cities shapefile was clipped to include only those records that fall within the US basemap data layer distributed with the Long Island Sound ArcView project file.
+      Source_Used_Citation_Abbreviation: cities.dbf
+      Source_Used_Citation_Abbreviation: cities.shp
+      Source_Used_Citation_Abbreviation: cities.shx
+      Process_Date: 20020418
+      Process_Time: 10:50
+      Source_Produced_Citation_Abbreviation: cities2.dbf
+      Source_Produced_Citation_Abbreviation: cities2.shp
+      Source_Produced_Citation_Abbreviation: cities2.shx
+      Process_Contact:
+        Contact_Information:
+          Contact_Person_Primary:
+            Contact_Person: Valerie Paskevich
+            Contact_Organization: U.S. Geological Survey
+          Contact_Position: Computer Specialist
+          Contact_Address:
+            Address_Type: mailing and physical address
+            Address: 384 Woods Hole Road
+            City: Woods Hole
+            State_or_Province: MA
+            Postal_Code: 02543-1598
+            Country: USA
+          Contact_Voice_Telephone: (508) 548-8700 x2281
+          Contact_Facsimile_Telephone: (508) 457-2310
+          Contact_Electronic_Mail_Address: vpaskevich@usgs.gov
+    Process_Step:
+      Process_Description: The dataset was reprojected to the Clarke 1866 spheroid to be compatible with the other data layers.
+      Source_Used_Citation_Abbreviation: citiesp.dbf
+      Source_Used_Citation_Abbreviation: citiesp.shp
+      Source_Used_Citation_Abbreviation: citiesp.shx
+      Process_Date: 20020418
+      Process_Time: 11:07
+      Source_Produced_Citation_Abbreviation: cities.dbf
+      Source_Produced_Citation_Abbreviation: cities.shp
+      Source_Produced_Citation_Abbreviation: cities.shx
+      Process_Contact:
+        Contact_Information:
+          Contact_Person_Primary:
+            Contact_Person: Valerie Paskevich
+            Contact_Organization: U.S. Geological Survey
+          Contact_Position: Computer Specialist
+          Contact_Address:
+            Address_Type: mailing and physical address
+            Address: 384 Woods Hole Road
+            City: Woods Hole
+            State_or_Province: MA
+            Postal_Code: 02543-1598
+            Country: USA
+          Contact_Voice_Telephone: (508) 548-8700 x2281
+          Contact_Facsimile_Telephone: (508) 457-2310
+          Contact_Electronic_Mail_Address: vpaskevich@usgs.gov
+    Process_Step:
+      Process_Description: Unwanted attribute fields were deleted from the shapefile.
+      Source_Used_Citation_Abbreviation: cities.dbf
+      Source_Used_Citation_Abbreviation: cities.shp
+      Source_Used_Citation_Abbreviation: cities.shx
+      Process_Date: 20020418
+      Process_Time: 11:15
+      Source_Produced_Citation_Abbreviation: cities.dbf
+      Source_Produced_Citation_Abbreviation: cities.shp
+      Source_Produced_Citation_Abbreviation: cities.shx
+      Process_Contact:
+        Contact_Information:
+          Contact_Person_Primary:
+            Contact_Person: Valerie Paskevich
+            Contact_Organization: U.S. Geological Survey
+          Contact_Position: Computer Specialist
+          Contact_Address:
+            Address_Type: mailing and physical address
+            Address: 384 Woods Hole Road
+            City: Woods Hole
+            State_or_Province: MA
+            Postal_Code: 02543-1598
+            Country: USA
+          Contact_Voice_Telephone: (508) 548-8700 x2281
+          Contact_Facsimile_Telephone: (508) 457-2310
+          Contact_Electronic_Mail_Address: vpaskevich@usgs.gov
+Spatial_Data_Organization_Information:
+  Direct_Spatial_Reference_Method: Vector
+  Point_and_Vector_Object_Information:
+    SDTS_Terms_Description:
+      SDTS_Point_and_Vector_Object_Type: Entity point
+      Point_and_Vector_Object_Count: 605
+Spatial_Reference_Information:
+  Horizontal_Coordinate_System_Definition:
+    Geographic:
+      Latitude_Resolution: 0.00001
+      Longitude_Resolution: 0.00001
+      Geographic_Coordinate_Units: Decimal degrees
+    Geodetic_Model:
+      Horizontal_Datum_Name: North American Datum of 1927
+      Ellipsoid_Name: Clarke 1866
+      Semi-major_Axis: 6378206.400000
+      Denominator_of_Flattening_Ratio: 294.978698
+Entity_and_Attribute_Information:
+  Detailed_Description:
+    Entity_Type:
+      Entity_Type_Label: cities.dbf
+      Entity_Type_Definition: Shapefile attribute file
+      Entity_Type_Definition_Source: ESRI
+    Attribute:
+      Attribute_Label: FID
+      Attribute_Definition: Internal feature number.
+      Attribute_Definition_Source: ESRI
+      Attribute_Domain_Values:
+        Unrepresentable_Domain: Sequential unique whole numbers that are automatically generated.
+    Attribute:
+      Attribute_Label: Shape
+      Attribute_Definition: Feature geometry.
+      Attribute_Definition_Source: ESRI
+      Attribute_Domain_Values:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: Point
+          Enumerated_Domain_Value_Definition: ESRI point shapefile
+          Enumerated_Domain_Value_Definition_Source: ESRI
+        Unrepresentable_Domain: Coordinates defining the features.
+    Attribute:
+      Attribute_Label: CITY_FIPS
+      Attribute_Definition: Field containing City fips code.
+    Attribute:
+      Attribute_Label: CITY_NAME
+      Attribute_Definition: City or town name
+      Attribute_Domain_Values:
+        Unrepresentable_Domain: Character field
+    Attribute:
+      Attribute_Label: STATE_FIPS
+      Attribute_Definition: Field containing State fips code.
+      Attribute_Domain_Values:
+        Range_Domain:
+          Range_Domain_Minimum: 09
+          Range_Domain_Maximum: 50
+          Attribute_Units_of_Measure: integer
+          Attribute_Measurement_Resolution: 1
+    Attribute:
+      Attribute_Label: STATE_NAME
+      Attribute_Definition: Text field containing state name.
+      Attribute_Domain_Values:
+        Unrepresentable_Domain: Character field
+    Attribute:
+      Attribute_Label: STATE_CITY
+      Attribute_Definition: Combination of the State_fips and City_fips code.
+      Attribute_Domain_Values:
+        Range_Domain:
+          Range_Domain_Minimum: 0901150
+          Range_Domain_Maximum: 5066175
+          Attribute_Units_of_Measure: integer
+          Attribute_Measurement_Resolution: 1
+    Attribute:
+      Attribute_Label: TYPE
+      Attribute_Definition: Designation for city type.
+      Attribute_Domain_Values:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: borough
+        Enumerated_Domain:
+          Enumerated_Domain_Value: census designed place
+        Enumerated_Domain:
+          Enumerated_Domain_Value: city
+        Enumerated_Domain:
+          Enumerated_Domain_Value: town
+        Enumerated_Domain:
+          Enumerated_Domain_Value: village
+    Attribute:
+      Attribute_Label: CAPITAL
+      Attribute_Definition: Designation if city is state capital.
+      Attribute_Domain_Values:
+        Enumerated_Domain:
+          Enumerated_Domain_Value: Y
+          Enumerated_Domain_Value_Definition: City is state capital.
+        Enumerated_Domain:
+          Enumerated_Domain_Value: N
+          Enumerated_Domain_Value_Definition: City is not state capital.
+    Attribute:
+      Attribute_Label: ELEVATION
+      Attribute_Definition: Elevation of city location.
+      Attribute_Domain_Values:
+        Range_Domain:
+          Range_Domain_Minimum: -99
+          Range_Domain_Maximum: 1660
+          Attribute_Units_of_Measure: meters
+          Attribute_Measurement_Resolution: 1
+    Attribute:
+      Attribute_Label: POP1990
+      Attribute_Definition: U.S. 1990 census population value for state.
+      Attribute_Domain_Values:
+        Range_Domain:
+          Range_Domain_Minimum: 8247
+          Range_Domain_Maximum: 7322564
+          Attribute_Units_of_Measure: integer
+          Attribute_Measurement_Resolution: 1
+  Overview_Description:
+Distribution_Information:
+  Distributor:
+    Contact_Information:
+      Contact_Person_Primary:
+        Contact_Person: Valerie Paskevich
+        Contact_Organization: U.S. Geological Survey
+      Contact_Position: Computer Specialists
+      Contact_Address:
+        Address_Type: mailing and physical address
+        Address: 384 Woods Hole Road
+        City: Woods Hole
+        State_or_Province: MA
+        Postal_Code: 02543-1598
+        Country: USA
+      Contact_Voice_Telephone: (508) 548-8700 x2281
+      Contact_Facsimile_Telephone: (508) 457-2310
+      Contact_Electronic_Mail_Address: vpaskevich@usgs.gov
+  Resource_Description: Long Island Sound: cities.shp
+  Distribution_Liability: Although this derived data set and it's lineage dataset have been used by the USGS and ESRI, no warranty, expressed or implied, is made by the USGS or ESRI as to the accuracy of the data and/or related materials.  The act of distribution shall not constitute any such warranty, and no responsibility is assumed by the USGS or ESRI in the use of these data or related materials.
+  Standard_Order_Process:
+    Digital_Form:
+      Digital_Transfer_Information:
+        Format_Name: ArcView
+        Format_Version_Number: 3.2
+        Format_Specification: ESRI point shapefile
+        Format_Information_Content: The seven ArcView files (cities.dbf, cities.shp, cities.shx, cities.avl, cities.sbn, cities.sbx, cities.prj) comprising a general data layer showing the U.S. cities falling within the USA basemap data layer distributed with the Long Island Sound ArcView project file and an ASCII version of the metatdata file.
+        File_Decompression_Technique: zip
+        Transfer_Size: 30 Kbytes
+      Digital_Transfer_Option:
+        Online_Option:
+          Computer_Contact_Information:
+            Network_Address:
+              Network_Resource_Name: http://pubs.usgs.gov/openfile/of02-002/data/basemaps/cities.zip
+        Offline_Option:
+          Offline_Media: DVD
+          Recording_Capacity:
+            Recording_Density: 4.75
+            Recording_Density_Units: Gigabytes
+          Recording_Format: ISO9660
+          Compatibility_Information: The user must have a system with a DVD capable of reading an ISO-9660 standard DVD-R disk. To browse the information contained on this disk, the user must also have a current version of a WWW browser available.
+    Fees: none
+  Technical_Prerequisites: This GIS layer is available in an ArcView shapefile format. Users must have ArcView 3.0 or later, or another GIS application capable of importing the data.
+  Available_Time_Period:
+    Time_Period_Information:
+      Single_Date/Time:
+        Calendar_Date: 20020630
+Metadata_Reference_Information:
+  Metadata_Date: 20020419
+  Metadata_Contact:
+    Contact_Information:
+      Contact_Person_Primary:
+        Contact_Person: Valerie Paskevich
+        Contact_Organization: U.S. Geological Survey
+      Contact_Position: computer specialist
+      Contact_Address:
+        Address_Type: mailing and physical address
+        Address: 384 Woods Hole Road
+        City: Woods Hole
+        State_or_Province: MA
+        Postal_Code: 02543-1598
+        Country: USA
+      Contact_Voice_Telephone: (508) 548-8700 x2281
+      Contact_Facsimile_Telephone: (508) 457-2310
+      Contact_Electronic_Mail_Address: vpaskevich@usgs.gov
+  Metadata_Standard_Name: FGDC Content Standards for Digital Geospatial Metadata
+  Metadata_Standard_Version: FGDC-STD-001-1998
+  Metadata_Time_Convention: local time
+  Metadata_Access_Constraints: None
+  Metadata_Use_Constraints: None
