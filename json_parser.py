@@ -49,7 +49,8 @@ class CleanData:
 		output_file = self.write_json(self.output_json_file,file)
 		print('Your file has been succesfully parsed as a new file named: ' + str(self.output_json_file))
 
-x = CleanData('new-york.json','ny-output.json')
-x.clean_it()
+if __name__ == '__main__':
+	x = CleanData('new-york.json','ny-output.json')
+	x.clean_it()
 
 
