@@ -216,3 +216,4 @@ pip-selfcheck.json
 results.csv
 test/
 heatmap.html
+*_test.csv
