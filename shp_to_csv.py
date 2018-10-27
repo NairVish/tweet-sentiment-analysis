@@ -8,6 +8,18 @@ def find_radius_from_area(area):
     # r = sqrt(A/pi)
     return math.sqrt(area/math.pi)
 
+def get_radius(city_type):
+    if city_type == "city":
+        return 9
+    elif city_type == "census designated place":
+        return 2
+    elif city_type == "village" or city_type == "town":
+        return 3
+    elif city_type == "borough":
+        return 7
+    elif city_type == "city (remainder)":
+        return 4
+
 all_cities_ne = []
 
 shape = shapefile.Reader("usgs_ne_cities_shapefile/cities.shp")
@@ -71,7 +83,16 @@ with open("us_census_gazetteer_ne.txt") as csvfile:
 
 print("{} cities were extracted from the shapefile.".format(len(all_cities_ne)))
 print("{} of those cities were matched with Census data.".format(len(gazetteer_matched_data)))
-print("Not found: {}".format(not_found))
+print("Not found in original USGS data: {}\n\tThese will be disregarded.".format(not_found))
+
+print("Now adding unmatched USGS cities back into data with generic radii.")
+for c in all_cities_ne:
+    d = next((mc for mc in gazetteer_matched_data if mc["name"] == c["name"] and mc["state"] == c["state"]), None)
+    if d is not None: continue
+
+    c["radius"] = get_radius(c["type"])
+    print("\t{} has been given a generic radius of {} ({}).".format(c["name"], c["radius"], c["type"]))
+    gazetteer_matched_data.append(c)
 
 with open("cities.csv", "w") as output_city_file:
     writer = csv.writer(output_city_file)
