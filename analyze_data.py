@@ -52,7 +52,7 @@ class TweetSentimentAnalyzer:
                 print("\t\tProcessing tweets for {}.".format(row[0]))
 
                 # Establish the name of the input file with the cleaned tweets
-                file_name = "output-%s.json" % "-".join(row[0].lower().split(" "))
+                file_name = "output-{}.json".format("-".join(row[0].lower().split(" ")))
                 full_file_path = os.path.join("tweets", file_name)
 
                 # Open the JSON with the cleaned tweets
@@ -62,7 +62,7 @@ class TweetSentimentAnalyzer:
 
                     # If the file is empty, then we have no tweets to process. Simply continue.
                     if not all_tweets:
-                        print("\t\tNo tweets to process for %s" % row[0])
+                        print("\t\tNo tweets to process for {}.".format(row[0]))
                         continue
 
                     # Else for each tweet in the file...
@@ -111,7 +111,7 @@ class TweetSentimentAnalyzer:
             # Create a circle/bubble
             folium.Circle(
                 location=[score_df.iloc[i]['lat'], score_df.iloc[i]['lon']],    # At the specified lat/lon
-                popup="%s - %d tweets retrieved - Compound: %.2f" % (           # With a popup specifying the city's name, # tweets, and avg sentiment score
+                popup="{} - {} tweets retrieved - Compound: {:.2f}".format(           # With a popup specifying the city's name, # tweets, and avg sentiment score
                     score_df.iloc[i]['city'], score_df.iloc[i]['num_tweets'], score_df.iloc[i]['score']),
                 radius=score_df.iloc[i]['city_radius'] * 1400,                  # Calculate a relative radius using the radius data
                 color=self.fill_gradient[gradient_score].hex_l,                 # Use the gradient score to color the bubble's outline appropriately
