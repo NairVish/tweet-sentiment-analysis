@@ -10,6 +10,7 @@ class GeoDataParser:
         self.cities_shapefile = cities_shapefile
         self.census_data_file = census_data_file
         self.out_file_name = out_file_name
+        print("INSTANTIATED GEODATA PARSER")
 
     @staticmethod
     def find_radius_from_area(area):
@@ -31,9 +32,9 @@ class GeoDataParser:
             return 4
 
     def parse(self):
-
         all_cities_ne = []
 
+        print("\tReading shapefile.")
         shape = shapefile.Reader(self.cities_shapefile)
         for r in shape.iterShapeRecords():
              c = {
@@ -46,8 +47,9 @@ class GeoDataParser:
              all_cities_ne.append(c)
 
         gazetteer_matched_data = []
-        not_found = []
+        skipped_count = 0
 
+        print("\tReading Census data and matching shapefile data with census data.")
         with open(self.census_data_file) as csvfile:
             r = csv.reader(csvfile, delimiter="\t")
             next(r)
@@ -70,17 +72,11 @@ class GeoDataParser:
                 lon = line[13]
                 state = line[0]
 
-                d = None
-                for c in all_cities_ne:
-                    if c["name"].lower().strip() == city.lower().strip() and c["state"].lower().strip() == state.lower().strip():
-                        d = c
-                        break
-
+                d = next((c for c in all_cities_ne if c["name"].lower().strip() == city.lower().strip() and c["state"].lower().strip() == state.lower().strip()), None)
                 if d is None:
-                    not_found.append(city)
+                    skipped_count += 1
                     continue
 
-                # d = next((c for c in all_cities_ne if ), None)
                 d["radius"] = round(self.find_radius_from_area(float(area_sq_mi)), 2)
 
                 gazetteer_matched_data.append(d)
@@ -89,23 +85,26 @@ class GeoDataParser:
                 #       .format(city, type, float(area_sq_mi), round(find_radius_from_area(float(area_sq_mi)), 2), float(lat),
                 #               float(lon), state, str(d)))
 
-        print("{} cities were extracted from the shapefile.".format(len(all_cities_ne)))
-        print("{} of those cities were matched with Census data.".format(len(gazetteer_matched_data)))
-        print("Not found in original USGS data: {}\n\tThese will be disregarded.".format(not_found))
+        print("\t{} cities were extracted from the shapefile.".format(len(all_cities_ne)))
+        print("\t{} of those cities were matched with Census data.".format(len(gazetteer_matched_data)))
+        print("\t{} cities in the Census data were not present in the shapefile. Disregarding these.".format(skipped_count))
 
-        print("Now adding unmatched USGS cities back into data with generic radii.")
+        print("\tNow re-adding {} unmatched shapefile cities back into the data with generic radii.".format(len(all_cities_ne)-len(gazetteer_matched_data)))
         for c in all_cities_ne:
             d = next((mc for mc in gazetteer_matched_data if mc["name"] == c["name"] and mc["state"] == c["state"]), None)
             if d is not None: continue
 
             c["radius"] = self.get_radius(c["type"])
-            print("\t{} has been given a generic radius of {} ({}).".format(c["name"], c["radius"], c["type"]))
+            print("\t\t{} has been given a generic radius of {} ({}).".format(c["name"], c["radius"], c["type"]))
             gazetteer_matched_data.append(c)
 
+        print("\tWriting matched data to {}.".format(self.out_file_name))
         with open(self.out_file_name, "w") as output_city_file:
             writer = csv.writer(output_city_file)
             for c in gazetteer_matched_data:
                 writer.writerow([c["name"], c["lon"], c["lat"], c["type"], c["state"], c["radius"]])
+
+        print("DONE!")
 
 
 if __name__ == "__main__":
