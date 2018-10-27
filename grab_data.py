@@ -3,17 +3,21 @@ The Twitter data downloader.
 
 Downloads and stores tweet data for each city in the specified csv file.
 """
-import twitter
 import csv
 import json
 import os
-import keys
 from time import sleep
+
+import twitter
+
+import keys
+
 
 class TwitterData:
     """
     The Twitter data downloader.
     """
+
     def __init__(self, cities_csv_file, QUERY):
         """
         Initializes the class.
@@ -69,7 +73,7 @@ class TwitterData:
                 # Using: the query, the lat+lon+radius to search, a maximum of 100 tweets in the response, and getting
                 #   all possible data for each tweet
                 results = self.api.GetSearch(raw_query="q=%s&geocode=%s,%s,%s&count=100&tweet_mode=extended"
-                                                  % (self.QUERY, row[2], row[1], self.get_radius(row[3])))
+                                                       % (self.QUERY, row[2], row[1], self.get_radius(row[3])))
 
                 print("\t\t{} - {}\n\t\t\t{}".format(row[0], row[3], results))
 
@@ -93,7 +97,7 @@ class TwitterData:
                 # Throttle requests to the Twitter API (user auth)
                 # Twitter limits to 180 requests/15-minute window, which equals 1 request every 5 seconds
                 # See: https://developer.twitter.com/en/docs/basics/rate-limits.html
-                sleep(5.1) # throttle requests
+                sleep(5.1)  # throttle requests
 
 
 if __name__ == '__main__':
