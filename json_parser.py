@@ -48,22 +48,30 @@ class CleanData:
             json.dump(data_to_dump, f)
             return json_file
 
-    def remove(self, duplicate):
+    def remove(self, all_tweets):
         """
         Cleans the data.
-        :param duplicate: The input JSON data.
+        :param all_tweets: The input JSON data.
         :return: The cleaned data.
         """
+        # if the JSON data is empty, then there are probably no tweets. Just return the empty list.
+        if not all_tweets:
+            return all_tweets
+
         final_list = []
         text = []
         pattern_to_eliminate = r"http\S+"
-        for num in duplicate:
-            if num not in final_list:
-                final_list.append(num)
-                list_one = [x.replace("\n", '') for x in final_list]
-                list_two = [x.replace("\\", '') for x in list_one]
-                list_three = [x.replace("\"", '*') for x in list_two]
-                list_four = [x.replace("", '') for x in list_three]
+
+        for t in all_tweets:
+            # remove duplicates
+            if t not in final_list:
+                final_list.append(t)
+
+        # clean through
+        list_one = [x.replace("\n", '') for x in final_list]
+        list_two = [x.replace("\\", '') for x in list_one]
+        list_three = [x.replace("\"", '*') for x in list_two]
+        list_four = [x.replace("", '') for x in list_three]
         for sentence in list_four:
             clean = re.sub(pattern_to_eliminate, "", sentence)
             text.append(clean)
