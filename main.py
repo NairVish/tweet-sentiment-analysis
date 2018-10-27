@@ -7,7 +7,7 @@ Grabs tweets, cleans them, processes them, and generates sentiment bubble map.
 import argparse
 import os
 
-from analyze_data import SentimentAnalyzer
+from analyze_data import TweetSentimentAnalyzer
 from grab_data import TwitterData
 from json_parser import CleanData
 
@@ -25,12 +25,12 @@ if __name__ == "__main__":
         print("The cities list does not exist. Run shp_to_csv.py to generate it.")
         os._exit(1)
 
-    # get tweets from each city for query
+    # Get tweets from each city for query
     print('Gathering data.')
     data = TwitterData('cities.csv', args.query)
     data.gather_data()
 
-    # clean grabbed tweets
+    # Clean grabbed tweets
     print('Cleaning data.')
     tweet_directory = os.path.join(os.getcwd(), 'tweets')
     os.chdir(tweet_directory)
@@ -43,7 +43,7 @@ if __name__ == "__main__":
 
     os.chdir(original_directory)
 
-    # plot sentiments
+    # Plot sentiments
     print('Starting sentiment analyzer and plotter.')
-    x = SentimentAnalyzer('cities.csv')
+    x = TweetSentimentAnalyzer('cities.csv')
     x.run_it()
