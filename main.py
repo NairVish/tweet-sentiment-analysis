@@ -6,31 +6,32 @@ import os
 import glob
 
 parser = argparse.ArgumentParser()
-parser.add_argument('query', help='Type whatever you are looking for. IE: obama', type= str)
+parser.add_argument('-q', '--query',
+                    help='Type whatever you are looking for. This can be an @ mention, a hashtag, or any other term.',
+                    type=str, required=True)
 args = parser.parse_args()
 
 original_directory = os.getcwd()
+if not os.path.exists(os.path.join(original_directory, "cities.csv")):
+    print("The cities list does not exist. Run shp_to_csv.py to generate it.")
+    os._exit(1)
 
 print('Gathering data')
-data = TwitterData('cities.csv',args.query)
+data = TwitterData('cities.csv', args.query)
 data.gather_data()
 
 print('Cleaning data')
-directory = os.getcwd() + '/tweets'
-new_directory = directory
+tweet_directory = os.path.join(os.getcwd(), 'tweets')
+os.chdir(tweet_directory)
 
-os.chdir(directory)
-
-for file in glob.glob('*.json'):
-	file_name = file
-	new_directory_file = directory + '/' + file
-	print(new_directory_file)
-	x = CleanData(new_directory_file, 'output-' + file_name)
-	x.clean_it()
+for file in os.listdir(os.getcwd()):
+    if not file.endswith(".json") or file.startswith("output-"): continue
+    print("\tCleaning {}".format(file))
+    x = CleanData(file, 'output-' + file)
+    x.clean_it()
 
 os.chdir(original_directory)
-
-print('Starting setiment analyzer and plotter')
+print('Starting sentiment analyzer and plotter')
 
 x = SentimentAnalyzer('cities.csv')
 x.run_it()
