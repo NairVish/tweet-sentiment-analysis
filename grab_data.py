@@ -66,7 +66,7 @@ class TwitterData:
                 # If a file with this name already exists...
                 if os.path.exists(full_file_path):
                     # Then skip this city, because we probably already have tweets for this city
-                    print("\t\tTweets for %s already exist!" % row[0])
+                    print("\tTweets for %s already exist!" % row[0])
                     continue
 
                 # Contact the Twitter API to get all of the tweets for this city
@@ -75,7 +75,7 @@ class TwitterData:
                 results = self.api.GetSearch(raw_query="q=%s&geocode=%s,%s,%s&count=100&tweet_mode=extended"
                                                        % (self.QUERY, row[2], row[1], self.get_radius(row[3])))
 
-                print("\t\t{} - {}\n\t\t\t{}".format(row[0], row[3], results))
+                print("\t{} - {}\n\t\t{}".format(row[0], row[3], results))
 
                 text_results = []
                 # For each tweet in the response...
@@ -92,7 +92,7 @@ class TwitterData:
                 # Dump all of the grabbed tweets into a JSON file...
                 with open(full_file_path, 'w') as input_file:
                     json.dump(text_results, input_file)
-                print("\t\t\tGrabbed tweets for %s." % row[0])
+                print("\t\tGrabbed tweets for %s." % row[0])
 
                 # Throttle requests to the Twitter API (user auth)
                 # Twitter limits to 180 requests/15-minute window, which equals 1 request every 5 seconds

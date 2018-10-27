@@ -49,7 +49,7 @@ class TweetSentimentAnalyzer:
 
             # For each row in the csv (i.e., for each city in the list)...
             for row in cities_csv:
-                print("\t\tProcessing tweets for {}.".format(row[0]))
+                print("\tProcessing tweets for {}.".format(row[0]))
 
                 # Establish the name of the input file with the cleaned tweets
                 file_name = "output-{}.json".format("-".join(row[0].lower().split(" ")))
@@ -62,7 +62,7 @@ class TweetSentimentAnalyzer:
 
                     # If the file is empty, then we have no tweets to process. Simply continue.
                     if not all_tweets:
-                        print("\t\tNo tweets to process for {}.".format(row[0]))
+                        print("\tNo tweets to process for {}.".format(row[0]))
                         continue
 
                     # Else for each tweet in the file...
@@ -121,7 +121,7 @@ class TweetSentimentAnalyzer:
 
         # Save the heatmap
         hmap.save(self.HEATMAP_OUTPUT_NAME)
-        print("\t\tThe map was succesfully plotted as: {}".format(self.HEATMAP_OUTPUT_NAME))
+        print("\tThe map was succesfully plotted as: {}".format(self.HEATMAP_OUTPUT_NAME))
 
 
 if __name__ == '__main__':
