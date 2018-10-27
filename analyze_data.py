@@ -15,19 +15,6 @@ class SentimentAnalyzer:
     def mean(self, numbers):
         return float(sum(numbers)) / len(numbers)
 
-
-    def get_radius(self, city_type):
-        if city_type == "city":
-            return 0.9
-        elif city_type == "census designated place":
-            return 0.2
-        elif city_type == "village" or city_type == "town":
-            return 0.3
-        elif city_type == "borough":
-            return 0.7
-        elif city_type == "city (remainder)":
-            return 0.4
-
     def run_it(self):
         fill_gradient = list(Color("red").range_to(Color("Green"), 1001))
 
@@ -52,7 +39,7 @@ class SentimentAnalyzer:
                         all_scores.append(vs["compound"])
                     avg_score = self.mean(all_scores)
                     # all_cities_scores.append({"lat": row[1], "lon": row[2], "score": avg_score})
-                    l = [row[1], row[2], (avg_score+1)/2, row[0], row[3], len(all_tweets)]
+                    l = [row[1], row[2], (avg_score+1)/2, row[0], row[3], len(all_tweets), row[5]]
                     all_cities_scores.append(l)
                     print(l)
 
@@ -60,7 +47,7 @@ class SentimentAnalyzer:
 
         with open("results.csv", 'w') as results_csv_file:
             results_csv = csv.writer(results_csv_file)
-            results_csv.writerow(["lon", "lat", "score", "city", "area_type", "num_tweets"])
+            results_csv.writerow(["lon", "lat", "score", "city", "area_type", "num_tweets", "city_radius"])
             for score_set in all_cities_scores:
                 results_csv.writerow(score_set)
 
@@ -68,6 +55,7 @@ class SentimentAnalyzer:
         score_df["lat"] = score_df["lat"].astype(float)
         score_df["lon"] = score_df["lon"].astype(float)
         score_df["num_tweets"] = score_df["num_tweets"].astype(int)
+        score_df["city_radius"] = score_df["city_radius"].astype(float)
 
         print(score_df)
 
@@ -83,7 +71,7 @@ class SentimentAnalyzer:
                 location=[score_df.iloc[i]['lat'], score_df.iloc[i]['lon']],
                 # popup=score_df.iloc[i]['name'],
                 popup="%s - %d tweets retrieved - Compound: %.2f" % (score_df.iloc[i]['city'], score_df.iloc[i]['num_tweets'], score_df.iloc[i]['score']),
-                radius= self.get_radius(score_df.iloc[i]['area_type'])*10000,
+                radius= score_df.iloc[i]['city_radius']*1400,
                 # color=outline_gradient[gradient_score + 200].hex_l,
                 color=fill_gradient[gradient_score].hex_l,
                 fill=True,
