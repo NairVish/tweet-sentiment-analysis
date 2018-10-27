@@ -8,6 +8,9 @@ from time import sleep
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
 class SentimentAnalyzer:
+
+    HEATMAP_OUTPUT_NAME = "heatmap.html"
+
     def __init__(self,csv_file):
         self.csv_file = csv_file
         self.analyzer = SentimentIntensityAnalyzer()
@@ -24,7 +27,7 @@ class SentimentAnalyzer:
             cities_csv = csv.reader(input_cities_csv)
             # next(cities_csv, None)
             for row in cities_csv:
-                print(row[0])
+                print("\t\tProcessing tweets for {}.".format(row[0]))
                 file_name = "output-%s.json" % "-".join(row[0].lower().split(" "))
                 full_file_path = os.path.join("tweets", file_name)
 
@@ -32,16 +35,16 @@ class SentimentAnalyzer:
                     all_tweets = json.load(city_tweets)
                     all_scores = []
                     if not all_tweets:
-                        print("No tweets to process for %s" % row[0])
+                        print("\t\tNo tweets to process for %s" % row[0])
                         continue
                     for tweet in all_tweets:
                         vs = self.analyzer.polarity_scores(tweet)
                         all_scores.append(vs["compound"])
                     avg_score = self.mean(all_scores)
-                    # all_cities_scores.append({"lat": row[1], "lon": row[2], "score": avg_score})
+
                     l = [row[1], row[2], (avg_score+1)/2, row[0], row[3], len(all_tweets), row[5]]
                     all_cities_scores.append(l)
-                    print(l)
+                    # print(l)
 
         # print("Final results: " + all_cities_scores)
 
@@ -57,11 +60,7 @@ class SentimentAnalyzer:
         score_df["num_tweets"] = score_df["num_tweets"].astype(int)
         score_df["city_radius"] = score_df["city_radius"].astype(float)
 
-        print(score_df)
-
-        # Bc heatmap adds when zooming out.
-        # Any way to average it instead?
-        # Alternatives: Chloropleth, bubble map
+        # print(score_df)
         hmap = folium.Map(location=[40.71, -74.0], zoom_start=10, tiles="Mapbox Bright")
 
         # Add markers one by one on the map
@@ -78,12 +77,8 @@ class SentimentAnalyzer:
                 fill_color=fill_gradient[gradient_score].hex_l
             ).add_to(hmap)
 
-
-        # heat_data = [[row['lat'],row['lon']] for index, row in score_df.iterrows()]
-        # HeatMap(heat_data, max_val=2).add_to(hmap)
-
-        hmap.save("heatmap.html")
-        print("The map was succesfuly plotted as: heatmap.html")
+        hmap.save(self.HEATMAP_OUTPUT_NAME)
+        print("\t\tThe map was succesfully plotted as: {}".format(self.HEATMAP_OUTPUT_NAME))
 
 if __name__ == '__main__':
     x = SentimentAnalyzer('cities.csv')

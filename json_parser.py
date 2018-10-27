@@ -1,15 +1,14 @@
+"""
+This class cleans json data for tweet sentiment analysis.
+Things that it parses for are: links, "\n", "\\", and "\"" in addition to removing duplicates.
+
+Things to do: Remove unicode.
+    * Alternative solution to that is to copy and paste the values into https://codebeautify.org/jsonviewer
+      and it will clean it for you and format it correctly.
+"""
 import json
 import re
 import os
-
-'''
-This class currently cleans json data for tweet sentiment analysis
-Things that it parses for are: links , "\n", "\\" and "\""
-As well as removing duplicates
-
-Things to do: Remove unicode. Alternative solution to that is to copy and paste the values into https://codebeautify.org/jsonviewer
-and it will clean it for you and format it correctly
-'''
 
 
 class CleanData:
@@ -20,7 +19,7 @@ class CleanData:
     def open_json(self, json_file):
         with open(json_file) as json_data_string:
             ds = json.load(json_data_string)
-            print('The original size of ' + str(json_file) + ' is: \t' + str(len(ds)))
+            print('\t\tThe original size of ' + str(json_file) + ' is: \t' + str(len(ds)))
             return ds
 
     def write_json(self, json_file, data_to_dump):
@@ -42,14 +41,14 @@ class CleanData:
         for sentence in list_four:
             clean = re.sub(pattern_to_eliminate, "", sentence)
             text.append(clean)
-        print('After cleaning the size of the file is \t' + str(len(text)))
+        print('\t\tAfter cleaning the size of the file is \t' + str(len(text)))
         return text
 
     def clean_it(self):
         file = self.open_json(self.json_file)
         file = self.remove(file)
         output_file = self.write_json(self.output_json_file, file)
-        print('Your file has been succesfully parsed as a new file named: ' + str(self.output_json_file))
+        print('\t\tYour file has been succesfully parsed as a new file named: ' + str(self.output_json_file))
 
 
 if __name__ == '__main__':
