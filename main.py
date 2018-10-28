@@ -2,7 +2,7 @@
 The main script.
 
 Takes in a query with the "-q" or "--query" argument.
-Grabs tweets, cleans them, processes them, and generates sentiment bubble map.
+Grabs tweets, cleans them, processes them, and generates a sentiment bubble map.
 """
 import argparse
 import os
@@ -21,6 +21,7 @@ if __name__ == "__main__":
 
     # check if the cities.csv file exists
     original_directory = os.getcwd()
+    # if it doesn't, stop here and direct the user to execute shp_to_csv.py
     if not os.path.exists(os.path.join(original_directory, "cities.csv")):
         print("The cities list does not exist. Run shp_to_csv.py to generate it.")
         os._exit(1)

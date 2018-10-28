@@ -79,9 +79,6 @@ class TweetSentimentAnalyzer:
                     # [lon, lat, adjusted compound score, city_name, city_type, num_tweets, city_radius]
                     l = [row[1], row[2], (avg_score + 1) / 2, row[0], row[3], len(all_tweets), row[5]]
                     all_cities_scores.append(l)
-                    # print(l)
-
-        # print("Final results: " + all_cities_scores)
 
         # Create a new csv for all of the results...
         with open("results.csv", 'w') as results_csv_file:
@@ -96,8 +93,6 @@ class TweetSentimentAnalyzer:
         score_df["lon"] = score_df["lon"].astype(float)
         score_df["num_tweets"] = score_df["num_tweets"].astype(int)
         score_df["city_radius"] = score_df["city_radius"].astype(float)
-
-        # print(score_df)
 
         # Invoke Folium to create a map using Mapbox Bright tiles, centered on NYC
         hmap = folium.Map(location=[40.71, -74.0], zoom_start=10, tiles="Mapbox Bright")

@@ -62,12 +62,12 @@ class CleanData:
         text = []
         pattern_to_eliminate = r"http\S+"
 
+        # remove duplicates
         for t in all_tweets:
-            # remove duplicates
             if t not in final_list:
                 final_list.append(t)
 
-        # clean through
+        # clean through unique tweets
         list_one = [x.replace("\n", '') for x in final_list]
         list_two = [x.replace("\\", '') for x in list_one]
         list_three = [x.replace("\"", '*') for x in list_two]
