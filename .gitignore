@@ -217,3 +217,4 @@ results.csv
 test/
 heatmap.html
 *_test.csv
+!demo/heatmap.html
