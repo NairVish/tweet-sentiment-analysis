@@ -1,8 +1,8 @@
 # Twitter Sentiment Analysis
 
 By:
-* Vishnu Nair (@NairVish)
-* Keith Low (@keithlowc)
+* Vishnu Nair ([@NairVish](https://github.com/NairVish))
+* Keith Low ([@keithlowc](https://github.com/keithlowc))
 
 A series of scripts that downloads tweets for a list of cities (in this case, northeastern U.S. cities) using a particular
 query, cleans them, computes an average sentiment for each city's tweets, and plots these average sentiment scores on a
